@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function Copyright(props) {
   return (
@@ -32,6 +32,9 @@ const theme = createTheme();
 export default function SignIn() {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
+  useEffect(()=>{
+  
+  },[])
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -60,7 +63,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Página de Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box noValidate sx={{ mt: 1 }}>
             <TextField
               value={email}
               onChange ={(e) =>setEmail(e.target.value)}
@@ -75,8 +78,8 @@ export default function SignIn() {
               
             />
             <TextField
-             value={senha}
-             onChange ={(e) =>setSenha(e.target.value)}
+              value={senha}
+              onChange ={(e) =>setSenha(e.target.value)}
               margin="normal"
               required
               fullWidth
@@ -92,7 +95,7 @@ export default function SignIn() {
               label="Remember me"
             />
             <Button
-       
+              onClick={handleSubmit}
               type="submit"
               fullWidth
               variant="contained"
